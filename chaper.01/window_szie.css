@@ -1,0 +1,11 @@
+* {
+  box-sizing: content-box;
+}
+
+.home__container {
+  width: 100%;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  background-color: #189cc4;
+}
