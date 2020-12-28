@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+/*
+  pink color ver.2
+  #f8adfc
+*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fee1ff;
+}
+
+section {
+  width: 350px;
+  margin: 40px 0;
+  /* box-shadow: 0px 2px 28px 1px rgba(249, 45, 255, 0.65); */
+  box-shadow: 5px 10px 25px 1px rgba(249, 45, 255, 0.6);
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 75px;
+  background-color: ghostwhite;
+  border-bottom: 1px solid lightgray;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 300;
+  color: grey;
+  letter-spacing: 0.2px;
+}
+
+.fas.fa-chevron-right,
+.fas.fa-chevron-left {
+  font-size: 20px;
+  line-height: 32px;
+  color: #4d4c4c;
+}
+
+/* article */
+article {
+  background-color: ghostwhite;
+}
+
+.added-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid lightgray;
+  height: 75px;
+}
+
+.added-item.one {
+  background-color: #fee1ff;
+}
+.added-item.two {
+  background-color: #fecde3;
+}
+.added-item.three {
+  background-color: #f4feb5;
+}
+.added-item.four {
+  background-color: #bef9fd;
+}
+.added-item.five {
+  background-color: #dbd8c7;
+}
+.added-item.six {
+  background-color: #c7ff9e;
+}
+
+.list__left {
+  color: grey;
+}
+
+.list__center,
+.item__count {
+  padding: 0 15px;
+}
+
+.list__center {
+  color: grey;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.list__right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: grey;
+}
+.list__right .far {
+  font-size: 29px;
+  padding-left: 20px;
+}
+
+.select-box {
+  border: 2px solid grey;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+footer {
+  height: 75px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fas.fa-shopping-basket {
+  color: grey;
+  font-size: 40px;
+}
+
+footer img {
+  width: 69px;
+  height: 69px;
+}
+footer div {
+  display: flex;
+  padding-left: 60px;
+  color: grey;
+}
+
+footer p {
+  padding: 0 5px;
+}

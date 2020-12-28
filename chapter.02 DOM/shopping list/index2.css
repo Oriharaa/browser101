@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fee1ff;
+}
+
+button {
+  border: none;
+  background: none;
+  outline-style: none;
+  cursor: pointer;
+  color: grey;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 65px;
+  background-color: ghostwhite;
+  border-bottom: 1px solid lightgray;
+  margin-top: 50px;
+  box-shadow: 5px 10px 25px 1px rgba(249, 45, 255, 0.6);
+  border-radius: 25px 25px 0 0;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 300;
+  color: grey;
+  letter-spacing: 0.2px;
+}
+
+/* section */
+section {
+  background-color: ghostwhite;
+  width: 350px;
+  box-shadow: 5px 10px 25px 1px rgba(249, 45, 255, 0.6);
+}
+
+.added-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65px;
+  border: 1px solid lightgray;
+}
+
+.added-item.one {
+  background-color: #fee1ff;
+}
+.added-item.two {
+  background-color: #fecde3;
+}
+.added-item.three {
+  background-color: #f4feb5;
+}
+.added-item.four {
+  background-color: #bef9fd;
+}
+.added-item.five {
+  background-color: #dbd8c7;
+}
+.added-item.six {
+  background-color: #c7ff9e;
+}
+
+button .list__left {
+  color: grey;
+}
+
+.list__center,
+.item__count {
+  padding: 0 15px;
+}
+
+.list__center {
+  color: grey;
+  font-weight: 500;
+  font-size: 15px;
+}
+.list__right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: grey;
+}
+.list__right .far {
+  font-size: 23px;
+  padding-left: 10px;
+}
+
+.select-box {
+  border: 2px solid grey;
+  border-radius: 5px;
+  width: 23px;
+  height: 23px;
+}
+
+footer {
+  width: 350px;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ghostwhite;
+  border-top: 1px solid lightgray;
+  box-shadow: 5px 10px 25px 1px rgba(249, 45, 255, 0.6);
+  border-radius: 0 0 25px 25px;
+}
+
+.fas.fa-shopping-basket {
+  color: grey;
+  font-size: 40px;
+}
+
+footer img {
+  width: 69px;
+  height: 69px;
+}
+footer div {
+  display: flex;
+  color: grey;
+}
+
+footer p {
+  padding: 0 5px;
+}
+
+footer .fa-plus {
+  font-size: 20px;
+  padding-right: 30px;
+  color: hotpink;
+}
+
+.input__wrapper {
+  height: 40px;
+  line-height: 13px;
+}
+
+.input__item {
+  background-color: white;
+  width: 100%;
+  height: 40px;
+  border: none;
+  text-align: center;
+  outline-style: none;
+  color: grey;
+  font-size: 13px;
+}
+.input-item::placeholder {
+  color: #d3d3d3;
+}
+
+.item {
+  transition: all;
+}
+
+.item-list {
+  transition: all;
+}
+.trash-btn {
+  transition: all;
+}
