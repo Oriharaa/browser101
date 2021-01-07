@@ -1,14 +1,14 @@
 'use strict';
+import PopUp from './popup.js';
+import Field from './field.js';
+
+
 
 const gameBtn = document.querySelector('.game__button');
 const gameTimer = document.querySelector('.game__timer');
 const gameField = document.querySelector('.game__field');
 const gameScore = document.querySelector('.game__score');
 const fieldRect = gameField.getBoundingClientRect();
-
-const popUp = document.querySelector('.pop-up');
-const popUpText = document.querySelector('.pop-up__message');
-const popUpRefresh = document.querySelector('.pop-up__refresh');
 
 const ZOMBIE_WIDTH = 50;
 const ZOMBIE_HEIGHT = 73;
@@ -30,6 +30,9 @@ let started = false;
 let score = 0;
 let timer = undefined;
 
+const gameFinishBanner = new PopUp();
+const imgField = new Field();
+
 
 gameBtn.addEventListener('click', ()=>{
     if(started){
@@ -41,10 +44,8 @@ gameBtn.addEventListener('click', ()=>{
 
 gameField.addEventListener('click', onFieldClick);
 
-
-popUpRefresh.addEventListener('click', ()=>{
+gameFinishBanner.setClickListener(()=>{
     startGame();
-    hidePopUp();
 });
 
 function startGame(){
@@ -64,7 +65,7 @@ function stopGame(){
     stopSound(bgm);
     stopGameTimer();
     hideButtonAndTimer();
-    showPopUpWithText('REPLAY ❓');
+    gameFinishBanner.showWithText('REPLAY ❓');
 };
 
 function finishGame(win){
@@ -76,7 +77,7 @@ function finishGame(win){
     }
     stopGameTimer();
     stopSound(bgm);
-    showPopUpWithText(win ? 'YOU WON 🎉' : 'YOU LOST 💩');
+    gameFinishBanner.showWithText(win ? 'YOU WON 🎉' : 'YOU LOST 💩');
 };
 
 function initGame(){
@@ -125,20 +126,12 @@ function hideButtonAndTimer(){
     gameScore.style.visibility = 'hidden'; 
 };
 
-function showPopUpWithText(text){
-    popUpText.innerText = text;
-    popUp.classList.remove('pop-up--hide');
-};
 
 function updateTimerText(time){
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     gameTimer.innerHTML = `0${minutes}:${seconds}`;
 };
-
-function hidePopUp(){
-    popUp.classList.add('pop-up--hide');
-}
 
 function onFieldClick(event){
     if(!started){
