@@ -1,6 +1,6 @@
 'use strict';
 
-import Field from './field.js';
+import Field, { ItemType } from './field.js';
 import * as sound from './sound.js';
 
 export const Reason = Object.freeze({
@@ -8,7 +8,6 @@ export const Reason = Object.freeze({
     lose: 'lose',
     cancel: 'cancel',
 });
-
 
 
 
@@ -51,7 +50,7 @@ class Game {
     
         this.gameBtn.addEventListener('click', ()=>{
             if(this.started){
-                this.stop();
+                this.stop(Reason.cancel);
             }else {
                 this.start();
             }
@@ -69,14 +68,14 @@ class Game {
         if(!this.started){
             return;
         }
-        if(item === 'zombie'){
+        if(item === ItemType.zombie){
             this.score++;
             this.updateScoreBoard();
             if(this.score === this.zombieCount){
-                this.finish(true);
+                this.stop(Reason.win);
             }
-        }else if(item === 'bomb'){
-            this.finish(false);
+        }else if(item === ItemType.bomb){
+            this.stop(Reason.lose);
         }
     };
 
@@ -95,28 +94,13 @@ class Game {
     
     };
 
-    stop(){
+    stop(reason){
         this.started = false; 
         this.stopGameTimer();
         this.hideGameButton();
-        sound.playAlert();
         sound.stopBgm();
-        this.onGameStop && this.onGameStop(Reason.cancel);
+        this.onGameStop && this.onGameStop(reason);
     };
-
-    finish(win){
-        this.started = false;
-        if(win){
-            sound.playWin();
-        }else {
-            sound.playBug();
-            this.hideGameButton();
-        }
-        this.stopGameTimer();
-        sound.stopBgm();
-        this.onGameStop && this.onGameStop(win ? Reason.win : Reason.lose);
-    };
-
 
     initGame(){
         this.score = 0;
@@ -142,7 +126,7 @@ class Game {
         this.timer = setInterval(()=>{
             if(remainingTimeSec <= 0){
                 clearInterval(this.timer);
-                this.finish(this.score === this.zombieCount);
+                this.stop(this.score === this.zombieCount ? Reason.win : Reason.lose);
                 return;
             }
             this.updateTimerText(--remainingTimeSec);

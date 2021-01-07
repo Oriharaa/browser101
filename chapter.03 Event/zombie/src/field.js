@@ -5,6 +5,11 @@ const ZOMBIE_WIDTH = 50;
 const ZOMBIE_HEIGHT = 73;
 const BOMB_SIZE = 50;
 
+export const ItemType = Object.freeze({
+    zombie: 'zombie',
+    bomb: 'bomb',
+})
+
 
 export default class Field {
     constructor(zombieCount, bombCount) {
@@ -22,12 +27,12 @@ export default class Field {
 
     onClick = (event)=> {
         const target = event.target;
-        if(target.matches('.zombie')){
+        if(target.matches('zombie')){
             target.remove();
             sound.playZombie();
-            this.onItemClick && this.onItemClick('zombie');
+            this.onItemClick && this.onItemClick(ItemType.zombie);
          }else if(target.matches('.bomb')){
-            this.onItemClick && this.onItemClick('bomb');
+            this.onItemClick && this.onItemClick(ItemType.bomb);
          }
 
     }
